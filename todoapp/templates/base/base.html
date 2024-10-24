@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Notes - {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    </head>
+    <body>
+        <div class="App">
+            <div class="container">
+                <div class="nav">
+                    <div class="nav-container">
+                        <a class="no-style-link" href="{% url 'todo_list' %}">
+                            <h1 class="title text-font">Notes</h1>
+                        </a>
+                        <a href="{% url 'todo_create' %}">
+                            <button class="button green-background text-font" href="{% url 'todo_create' %}">
+                                Add Note
+                            </button>
+                        </a>
+                    </div>
+                    
+                </div>
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </body>
+</html>

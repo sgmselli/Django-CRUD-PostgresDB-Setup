@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+
+{% block title %}create{% endblock %}
+
+{% block content %}
+
+    <div class="form-body">
+        <div class="form-container">
+
+            <h1 class="text-font form-title">Add Note</h1>
+
+            <form class="form-group" method="post" action="{% url 'todo_create' %}">
+                {% csrf_token %}
+                <div class="form-control">
+                    <label class="text-font" for="title">Note Description</label>
+                    <input class="text-font" type="text" id="description" name="description" required  placeholder="Enter task title">
+                    
+                </div>
+
+                <button class="text-font button green-background" type="submit">Add Note</button>
+
+            </form>
+
+        </div>
+    </div>
+
+    
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% block title %}delete{% endblock %}
+
+{% block content %}
+
+<div class="form-body">
+    <div class="form-container">
+
+        <h1 class="text-font form-title">Delete "{{ todo.description }}"</h1>
+
+        <form class="form-group" method="post">
+            {% csrf_token %}
+            <button class="button red-background text-font" type="submit">Delete Note</button>
+        </form>
+
+    </div>
+</div>
+    
+{% endblock %}

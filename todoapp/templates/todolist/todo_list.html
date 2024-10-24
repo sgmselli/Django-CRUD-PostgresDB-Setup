@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+{% block title %}home{% endblock %}
+
+{% block content %}
+
+    <div class="todo-list">
+        {% for todo in todos %}
+            <div class="todo">
+                <div class="todo-container">
+                    <div class="item">
+                        <h3 class="text-font {% if todo.completed %}line-through{% endif %}">{{ todo.description }}</h3>
+                    </div>
+                    <div class="updates">
+                        <a href="{% url 'todo_update' todo.id %}">
+                            <svg fill="none" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m3 17.25v3.75h3.75l11.06-11.06-3.75-3.75zm17.71-10.21c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75z" fill="rgb(0,0,0)"/></svg>
+                        </a>
+                        <a href="{% url 'todo_delete' todo.id %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}
